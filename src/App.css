@@ -1,7 +1,33 @@
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.pokedex-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 80%;
+  column-gap: 5%;
+  row-gap: 2%;
+}
+
+.card-container {
+  margin-top: 2rem;
+  padding: 0 1em;
+  border-radius: 4px;
+  border: solid 1px #000;
+}
+
+.card-container img{
+   display: block;
+   width: 100%;
+}
+
 .pagination-row{
   display: flex;
   justify-content: space-between;
   padding: 1em 2em;
+  width: 200%;
 }
 
 .pagination-row > .item{

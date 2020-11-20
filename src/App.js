@@ -54,8 +54,6 @@ export default class App extends React.Component {
         this.setState({currentPage: requestPage})
     }
 
-
-
     render() {
         return (
             <div className="pokedex-container">
