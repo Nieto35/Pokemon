@@ -3,6 +3,11 @@
   justify-content: center;
 }
 
+body {
+  background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
+	background: linear-gradient(to right, #D4D3DD, #EFEFBB);
+}
+
 .pokedex-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -16,6 +21,7 @@
   padding: 0 1em;
   border-radius: 4px;
   border: solid 1px #000;
+
 }
 
 .card-container img{
