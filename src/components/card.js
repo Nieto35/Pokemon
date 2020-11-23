@@ -1,5 +1,6 @@
 import React from 'react';
 import Detail from './pokemonDetail';
+import Type from './types'
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 
@@ -8,7 +9,8 @@ export default class Card extends React.Component {
         super();
         this.state = {
             abierto: false,
-            pokemonDetails: []
+            pokemonDetails: [],
+            types: []
         }
     }
     
@@ -26,7 +28,7 @@ export default class Card extends React.Component {
         //Consumir la API de pokeapi
         fetch(`${url}`)
             .then(response => response.json())
-            .then(data => this.setState({pokemonDetails: data.stats}))
+            .then(data => this.setState({pokemonDetails: data.stats, types: data.types}))
             .catch( error => {
               console.log(error);
             })
@@ -46,7 +48,7 @@ export default class Card extends React.Component {
   
               .then(response => response.json())
   
-              .then(data => this.setState({pokemonDetails: data.stats}))
+              .then(data => this.setState({pokemonDetails: data.stats, types: data.types}))
   
               .catch( error => {
   
@@ -57,7 +59,8 @@ export default class Card extends React.Component {
       }
 
     render() {
-
+    
+        
         return (
             <div className="card-container">
             <h2>{this.props.name}</h2>
@@ -67,13 +70,14 @@ export default class Card extends React.Component {
 
             <Modal isOpen={this.state.abierto}>
                 <ModalHeader>
-                    {this.props.name}
+                    <div>{this.props.name}</div>
+                    
+                    <div>{this.props.num}</div>
                 </ModalHeader>
                 <ModalBody>
                     <img src={this.props.img} alt={this.props.name} />
                     {this.state.pokemonDetails.map((detail, index) => <Detail key= {index} name ={detail.stat.name} stat = {detail.base_stat}/>)}
-        
-                     
+                    {this.state.types.map((type, index) => <Type key= {index} type ={type.type.name}/>)}
                 </ModalBody>
                 <ModalFooter>
                     <Button onClick= {() => this.abrirModal(this.props.num)}> Cerrar </Button>
