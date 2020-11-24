@@ -27,6 +27,7 @@ body {
 .button-details {
   margin-bottom: 1rem;
 }
+
 .pokedex-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -70,11 +71,25 @@ body {
    width: 100%;
 }
 
-.pagination-row{
+.pagination-row {
   display: flex;
   justify-content: space-between;
   padding: 1em 2em;
-  width: 200%;
+  width: 210%;
+}
+
+.pagination-row > .item {
+  flex-basis: 8%;
+  text-align: center;
+  background-color: #82b0ec;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 74.52px;
+  padding-top: 1rem;
+  color: aliceblue;
+  font-weight: bolder;
+  font-size: 30px;
+  box-shadow: 2px 2px 5px rgb(104, 97, 97);
 }
 
 .pagination-row > .item{

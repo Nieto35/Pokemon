@@ -10,6 +10,7 @@ export default class Card extends React.Component {
         this.state = {
             abierto: false,
             pokemonDetails: [],
+            stat: [],
             types: [
                 // fire = '#FDDFDF',
                 // grass = '#DEFDE0',
@@ -104,7 +105,7 @@ export default class Card extends React.Component {
                     </ModalHeader>
                     
                     <div className="body-memu">
-                        {this.state.pokemonDetails.map((detail, index) => <Detail key= {index} name ={detail.stat.name} stat = {detail.base_stat}/>)}
+                        {this.state.pokemonDetails.map((detail, index) => <Detail key= {index} name = {detail.stat.name} stat = {detail.base_stat}/>)}
                         {/* {this.state.types.map((type, index) => <Type key= {index} type ={type.type.name}/>)} */}
                     </div>
                     
