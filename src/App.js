@@ -11,22 +11,22 @@ export default class App extends React.Component {
             currentPage: 1,
             pokemonPerPage: 10,
             pokemonImg :  0,
-            colors: {
-              fire: '#FDDFDF',
-              grass: '#DEFDE0',
-              electric: '#FCF7DE',
-              water: '#DEF3FD',
-              ground: '#f4e7da',
-              rock: '#d5d5d4',
-              fairy: '#fceaff',
-              poison: '#98d7a5',
-              bug: '#f8d5a3',
-              dragon: '#97b3e6',
-              psychic: '#eaeda1',
-              flying: '#F5F5F5',
-              fighting: '#E6E0D4',
-              normal: '#F5F5F5'
-            }
+            // types: {
+            //   fire: '#FDDFDF',
+            //   grass: '#DEFDE0',
+            //   electric: '#FCF7DE',
+            //   water: '#DEF3FD',
+            //   ground: '#f4e7da',
+            //   rock: '#d5d5d4',
+            //   fairy: '#fceaff',
+            //   poison: '#98d7a5',
+            //   bug: '#f8d5a3',
+            //   dragon: '#97b3e6',
+            //   psychic: '#eaeda1',
+            //   flying: '#F5F5F5',
+            //   fighting: '#E6E0D4',
+            //   normal: '#F5F5F5'
+            // }
         }
     }
 
@@ -45,6 +45,8 @@ export default class App extends React.Component {
             .catch( error => {
               console.log(error);
             })
+
+            
 
     }
 
@@ -73,8 +75,10 @@ export default class App extends React.Component {
     }
 
     render() {
+      
         return (
             <div className="pokedex-container">
+            
               {
                 this.state.pokemones.map( (pokemon, index) => {      
                   //2. Solucionar el problema de obtener las imagenes de los pokemones con id < 10, > 10, > 100  
@@ -83,7 +87,8 @@ export default class App extends React.Component {
                   (this.state.pokemonImg + index)< 9 ?  pokemonImgfn = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/00${this.state.pokemonImg + (index+1)}.png` : ((this.state.pokemonImg + index) < 99 ? pokemonImgfn = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/0${this.state.pokemonImg + (index+1)}.png` : pokemonImgfn = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${this.state.pokemonImg + (index+1)}.png`)
       
                   return (
-                    <Card key={index + 1} name={pokemon.name} img={pokemonImgfn} colors={pokemon.type}/>
+                  
+                    <Card key={index + 1} name={pokemon.name} img={pokemonImgfn} num={this.state.pokemonImg + index + 1} />
                   )
                 })
               }
