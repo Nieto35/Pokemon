@@ -89,24 +89,23 @@ export default class Card extends React.Component {
             <div className="pokemon-type"> {this.state.types.map((type, index) => <Type key= {index} type ={type.type.name}/>)} </div>
             <Button className="button-details" onClick= {() => this.abrirModal(this.props.num)}> Detalles</Button>
             </div>
-            
-            
-            
+              
             <Modal isOpen={this.state.abierto}>
             
+                <ModalHeader>
+                    <h2>#{this.props.num}</h2>
+                    <h2>{this.props.name}</h2>
+                </ModalHeader>
+                    
+
                 <ModalBody>
                     <div className="bg-image">
                         <img src={this.props.img} alt={this.props.name} />
                     </div>
                     
-                    <ModalHeader>
-                        <h2>#{this.props.num}</h2>
-                        <h2>{this.props.name}</h2>
-                    </ModalHeader>
-                    
                     <div className="body-memu">
                         {this.state.pokemonDetails.map((detail, index) => <Detail key= {index} name = {detail.stat.name} stat = {detail.base_stat}/>)}
-                        {/* {this.state.types.map((type, index) => <Type key= {index} type ={type.type.name}/>)} */}
+                        {this.state.types.map((type, index) => <Type key= {index} type ={type.type.name}/>)}
                     </div>
                     
                 </ModalBody>
